@@ -54,6 +54,7 @@ const SapScreen = () => {
             fechauno: dataform.fechauno + " 00:00:00",
             fechados: dataform.fechados + " 23:59:59"
         }).then(res => {
+            console.log(res)
             setData(res)
             if (res.length === 0) {
                 swal("Noy hay datos para generar el informe", {
@@ -86,17 +87,7 @@ const SapScreen = () => {
         console.log(data)
 
         data.forEach(item => {
-            item.campo3 = item.campo3.replace(" ", "");
-            item.campo3 = item.campo3.replace(":", "")
-            item.campo3 = item.campo3.replace("-", "")
-            item.campo3 = item.campo3.replace(":", "")
-            item.campo3 = item.campo3.replace("-", "")
-
-            item.campo4 = item.campo3.replace(" ", "");
-            item.campo4 = item.campo3.replace(":", "")
-            item.campo4 = item.campo3.replace("-", "")
-            item.campo4 = item.campo3.replace(":", "")
-            item.campo4 = item.campo3.replace("-", "")
+            
             texto = texto.concat(item.campo1 + item.campo2 + item.campo3 + item.campo4 + item.campo5 + item.campo6 + item.campo7 + item.campo8 + "\n")
         })
 
