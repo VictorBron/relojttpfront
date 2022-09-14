@@ -1,0 +1,26 @@
+.sidebar a {
+    text-decoration: none;
+    color: rgb(73, 73, 73);
+}
+
+.sidebar .activated>* {
+    background-color: white !important;
+    background-size: cover;
+    color: black !important;
+    box-shadow: 0 0 12px -10px #000;
+    border-radius: 5px !important;
+
+}
+
+.sidebar .activated svg {
+    color: black !important;
+}
+
+.sidebar .activated a {
+    font-weight: bold !important;
+}
+
+.sidebar {
+    overflow-y: scroll;
+
+}
