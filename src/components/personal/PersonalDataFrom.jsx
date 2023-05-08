@@ -3,13 +3,7 @@ import React, { useState } from 'react'
 
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 
-
-
-
 const PersonalDataFrom = ({ register, errors }) => {
-
-
-
     return (
         <Card>
             <CardContent>
@@ -55,16 +49,21 @@ const PersonalDataFrom = ({ register, errors }) => {
                             label="DV"
                             fullWidth
                             onInput={(e) => {
-                                e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 1)
+                                let inputValue = e.target.value.toLowerCase();
+                                if (inputValue === "k" || /^\d$/.test(inputValue)) {
+                                    e.target.value = inputValue;
+                                } else {
+                                    e.target.value = "";
+                                }
                             }}
 
+                            /* onInput debe permitir del 1 al 9 y la letra k */
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
                                         <FingerprintIcon />
                                     </InputAdornment>
                                 )
-
                             }}
 
                             {

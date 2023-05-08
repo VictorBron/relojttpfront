@@ -22,15 +22,15 @@ const AgregarPersonalScreen = () => {
             swal({
                 text: "Los campos con * son requeridos",
                 timer: 3000,
-                buttons:false,
-                icon:"error"
+                buttons: false,
+                icon: "error"
             })
         } else if (data.password != data.password2) {
             swal({
                 text: "Las claves deben ser iguales",
                 timer: 3000,
-                buttons:false,
-                icon:"error"
+                buttons: false,
+                icon: "error"
             })
         } else {
             addPersonal({
