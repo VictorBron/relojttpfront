@@ -57,10 +57,10 @@ const SapScreen = () => {
 
 
         generaraInformeSap({
-            /* fechauno: fechaunoremplazo + " 00:00:00",
-            fechados: fechadosremplazo + " 23:59:59" */
-            fechauno: dataform.fechauno + " 00:00:00",
-            fechados: dataform.fechados + " 23:59:59"
+            fechauno: fechaunoremplazo + " 00:00:00",
+            fechados: fechadosremplazo + " 23:59:59"
+           /*  fechauno: dataform.fechauno + " 00:00:00",
+            fechados: dataform.fechados + " 23:59:59" */
         }).then(res => {
             console.log(res)
             setData(res)
