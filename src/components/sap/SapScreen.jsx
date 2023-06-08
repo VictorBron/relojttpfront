@@ -50,21 +50,32 @@ const SapScreen = () => {
         e.preventDefault()
         setPendiente(true)
 
+        /* remplazar el dia por la fecha en data form 2023-01-31 a 2023-31-01 */
+         const fechaunoremplazo = dataform.fechauno.split("-")[2] + "-" + dataform.fechauno.split("-")[1] + "-" + dataform.fechauno.split("-")[0]
+         const fechadosremplazo = dataform.fechados.split("-")[2] + "-" + dataform.fechados.split("-")[1] + "-" + dataform.fechados.split("-")[0]
+ 
+
+
         generaraInformeSap({
+            /* fechauno: fechaunoremplazo + " 00:00:00",
+            fechados: fechadosremplazo + " 23:59:59" */
             fechauno: dataform.fechauno + " 00:00:00",
             fechados: dataform.fechados + " 23:59:59"
         }).then(res => {
             console.log(res)
             setData(res)
+            console.log(dataform)
             if (res.length === 0) {
                 swal("Noy hay datos para generar el informe", {
                     timer: 3000,
                     buttons: false,
                     icon: "error"
                 })
+
                 setPendiente(false)
             }
         }).catch(() => {
+            console.log(dataform)
             setPendiente(false)
             swal("Noy hay datos para generar el informe", {
                 timer: 3000,
@@ -87,7 +98,7 @@ const SapScreen = () => {
         console.log(data)
 
         data.forEach(item => {
-            
+
             texto = texto.concat(item.campo1 + item.campo2 + item.campo3 + item.campo4 + item.campo5 + item.campo6 + item.campo7 + item.campo8 + "\n")
         })
 

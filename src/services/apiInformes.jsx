@@ -8,7 +8,11 @@ export const generaraInformeGeneral = async (dataform) => {
 
 }
 export const generaraInformeSap = async (dataform) => {
-    return await axios.post(import.meta.env.VITE_APP_BACKEND_URL + "informes/sap", dataform, config).then(res => res.data)
+
+    return await axios.post(import.meta.env.VITE_APP_BACKEND_URL + "informes/sap", dataform, config).then(res => {
+        console.log(res)
+        return res.data
+    })
 }
 export const generaraInformeGeneral2 = async (dataform) => {
     return await axios.post(import.meta.env.VITE_APP_BACKEND_URL + "informes/general2", dataform, config).then(res => res.data)
